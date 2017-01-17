@@ -13,7 +13,8 @@ namespace AlloyDiagram
 
             bundles.Add(new ScriptBundle("~/bundles/alloy").Include(
                         "~/Scripts/aui-min.js",
-                        "~/Scripts/ui-script.js"));
+                        "~/Scripts/ui-script.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                                     "~/Scripts/jquery.validate*"));
