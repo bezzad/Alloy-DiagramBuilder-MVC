@@ -17,7 +17,6 @@ namespace AlloyDiagram.Controllers
         [HttpPost]
         public IHttpActionResult SaveDiagram(Diagram value)
         {
-            //DiagramNodeData = JsonConvert.DeserializeObject<Diagram>(value);
             return Ok(value);
         }
         
