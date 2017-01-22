@@ -13,5 +13,10 @@ namespace AlloyDiagram.Controllers
         {
             return View();
         }
+
+        public ActionResult TestPage()
+        {
+            return View();
+        }
     }
 }

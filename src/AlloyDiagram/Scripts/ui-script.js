@@ -1,3 +1,25 @@
+var copyDiagram = function () {
+    YUI()
+        .use('aui-diagram-builder',
+            function (y) {
+                var x = diagramBuilder.toJSON();
+
+                $.post("api/diagram/savediagram",
+                    x,
+                    function (d) {
+                        var diagramBuilder2 = new y.DiagramBuilder(
+                            {
+                                availableFields: availableFieldsData,
+                                boundingBox: '#myDiagramContainer2',
+                                fields: d,
+                                render: true,
+                                srcNode: '#myDiagramBuilder2'
+                            }
+                        );
+                    });
+            });
+};
+
 //YUI().use(
 //     'aui-diagram-builder',
 //     function (Y) {

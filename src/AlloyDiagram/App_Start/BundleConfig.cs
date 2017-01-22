@@ -12,7 +12,7 @@ namespace AlloyDiagram
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/alloy").Include(
-                        "~/Scripts/aui-min.js",
+                        "~/Scripts/AlloyUi/aui/aui.js",
                         "~/Scripts/ui-script.js"
                         ));
 

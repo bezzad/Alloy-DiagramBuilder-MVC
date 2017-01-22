@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace AlloyUiDiagram
 {
@@ -12,7 +14,10 @@ namespace AlloyUiDiagram
     {
         public string iconClass { get; set; }
         public string label { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
         public FieldType type { get; set; }
+
 
         public static List<Shape> GetAvailableFields()
         {

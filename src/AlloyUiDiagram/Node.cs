@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace AlloyUiDiagram
 {
@@ -19,8 +20,9 @@ namespace AlloyUiDiagram
 
         [JsonIgnore]
         public bool Required { get; set; }
-        
-        public FieldType @Type { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
+        public FieldType Type { get; set; }
 
         [JsonIgnore]
         public int Width { get; set; }
