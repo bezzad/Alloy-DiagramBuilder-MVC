@@ -1,6 +1,6 @@
 namespace AlloyUiDiagram
 {
-    public class ShapeSelected
+    public class ShapeSetting
     {
         public Stroke Stroke { get; set; }
     }

@@ -4,12 +4,12 @@ namespace AlloyUiDiagram
 {
     public class Connector
     {
-        public string color { get; set; }
-        public bool lazyDraw { get; set; }
-        public string name { get; set; }
-        public ShapeSelected shapeSelected { get; set; }
-        public ShapeHover shapeHover { get; set; }
-        public List<double> p1 { get; set; }
-        public List<double> p2 { get; set; }
+        public string Color { get; set; }
+        public bool LazyDraw { get; set; }
+        public string Name { get; set; }
+        public ShapeSetting ShapeSelected { get; set; }
+        public ShapeSetting ShapeHover { get; set; }
+        public List<double> P1 { get; set; }
+        public List<double> P2 { get; set; }
     }
 }

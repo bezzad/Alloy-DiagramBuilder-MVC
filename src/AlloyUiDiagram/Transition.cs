@@ -4,11 +4,11 @@ namespace AlloyUiDiagram
 {
     public class Transition
     {
-        public string source { get; set; }
-        public string target { get; set; }
-        public string uid { get; set; }
-        public List<int> sourceXY { get; set; }
-        public List<int> targetXY { get; set; }
-        public Connector connector { get; set; }
+        public string Source { get; set; }
+        public string Target { get; set; }
+        public string Uid { get; set; }
+        public List<int> SourceXY { get; set; }
+        public List<int> TargetXY { get; set; }
+        public Connector Connector { get; set; }
     }
 }

@@ -46,13 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvailableFields.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Diagram.cs" />
+    <Compile Include="FieldType.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shape.cs" />
-    <Compile Include="ShapeHover.cs" />
-    <Compile Include="ShapeSelected.cs" />
+    <Compile Include="ShapeSetting.cs" />
     <Compile Include="Stroke.cs" />
     <Compile Include="Transition.cs" />
   </ItemGroup>
