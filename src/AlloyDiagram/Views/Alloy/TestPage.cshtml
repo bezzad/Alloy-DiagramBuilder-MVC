@@ -1,54 +1,29 @@
-﻿<script src="~/Scripts/AlloyUi/aui/aui.js"></script>
+﻿@section scripts{
+    @Scripts.Render("~/bundles/alloy")
 
-<div id="diagram-builder-bb">
-    <div id="diagram-builder-sn" title="Test View Tooltip"></div>
-</div>
+    <script type="text/javascript">
+        $.get(window.location.origin + "/api/diagram/GetSavedData", function(data) {
+            DiagramDrower('myDiagramContainer2',
+                'myDiagramBuilder2',
+                data.nodes,
+                data.connections,
+                function(diagram) {
+                    // some changes on diagram object
+                });
+        });
+    </script>
+}
 
-<script>
-    YUI().use(
-  'aui-diagram-builder',
-  function (Y) {
 
-      var availableFields = [
-        {
-            iconClass: 'diagram-node-task-icon',
-            label: 'Task',
-            type: 'task'
-        }
-      ];
 
-      var diagramBuilder = new Y.DiagramBuilder(
-        {
-            availableFields: availableFields,
-            boundingBox: '#diagram-builder-bb',
-            fields: [
-              {
-                  name: 'StartNode',
-                  type: 'start',
-                  xy: [10, 10]
-              },
-              {
-                  name: 'EndNode',
-                  type: 'end',
-                  xy: [300, 400]
-              }
-            ],
-            render: true,
-            srcNode: '#diagram-builder-sn'
-        }
-      );
 
-      diagramBuilder.connectAll(
-        [
-          {
-              connector: {
-                  name: 'TaskConnector'
-              },
-              source: 'StartNode',
-              target: 'EndNode'
-          }
-        ]
-      );
-  }
-);
-</script>
+<br />
+<br />
+<br />
+<br />
+
+<form>
+    <div id="myDiagramContainer2">
+        <div id="myDiagramBuilder2" title="Test View Tooltip 2"></div>
+    </div>
+</form>
