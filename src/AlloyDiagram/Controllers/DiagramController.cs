@@ -2,7 +2,6 @@
 using System.Web.Http;
 using AlloyUiDiagram;
 using System.Linq;
-using System.Web.Http.Cors;
 
 namespace AlloyDiagram.Controllers
 {
@@ -17,15 +16,7 @@ namespace AlloyDiagram.Controllers
 
             DiagramNodeData = value;
 
-            return Ok(value);
-        }
-
-        [HttpGet]
-        public IHttpActionResult GetDiagram()
-        {
-            if (DiagramNodeData == null) return NotFound();
-
-            return Ok(DiagramNodeData);
+            return Ok(true);
         }
 
         [HttpGet]
