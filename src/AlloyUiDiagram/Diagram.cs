@@ -5,7 +5,7 @@ namespace AlloyUiDiagram
 {
     public class Diagram
     {
-        public int DiagramId { get; set; }
+        public Guid DiagramId { get; set; } = Guid.NewGuid();
 
         public string DiagramName { get; set; }
 

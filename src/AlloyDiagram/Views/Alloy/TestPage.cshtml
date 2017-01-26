@@ -2,7 +2,7 @@
     @Scripts.Render("~/bundles/alloy")
 
     <script type="text/javascript">
-        $.get(window.location.origin + "/api/diagram/GetSavedData", function(data) {
+        $.get(window.location.origin + "/api/diagram/GetSavedData", {id:'422BBA12-E0D6-472F-8F37-3702A5245DA4'}, function (data) {
             DiagramDrower('myDiagramContainer2',
                 'myDiagramBuilder2',
                 data.nodes,

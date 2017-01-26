@@ -207,6 +207,8 @@
     <Compile Include="Controllers\DiagramController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Core\AlloyHelper.cs" />
+    <Compile Include="Core\ExtensionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
