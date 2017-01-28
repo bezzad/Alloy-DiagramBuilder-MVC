@@ -1,0 +1,8 @@
+﻿@using GridMvc.Html
+@model IEnumerable<AlloyUiDiagram.Diagram>
+
+@Html.Grid(Model).Named("diagramsGrid").Columns(columns =>
+{
+    columns.Add(d => d.DiagramId).Titled("Diagram Id").SetWidth(20).Sortable(true);
+    columns.Add(d => d.DiagramName).Titled("Diagram Name").SetWidth(110).Sortable(true);
+}).WithPaging(10)

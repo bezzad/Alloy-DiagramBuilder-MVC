@@ -1,0 +1,22 @@
+﻿@{
+    AjaxOptions opt = new AjaxOptions
+    {
+        //Confirm = "Are you sure to start search?",
+        //LoadingElementDuration = 500,
+        // LoadingElementId = "divSaveLoading",
+        UpdateTargetId = "divDiagram",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST"
+    };
+
+}
+
+<div id="divDiagram">
+    @using (Ajax.BeginForm("GetDiaramView", "Alloy", null, opt, new { id = "frmDiagram" })) // set new Id name for  Form
+    {
+        <input type="hidden" name="alloyDiagramId" id="alloyDiagramId" value="" />
+        <div id="myDiagramContainer">
+            <div id="myDiagramBuilder" title="Test View Tooltip 2"></div>
+        </div>
+    }
+</div>

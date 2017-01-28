@@ -36,19 +36,13 @@ namespace AlloyDiagram.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetSavedData(string id)
+        public IHttpActionResult GetSavedData(Guid id)
         {
-            var diagramNodeData = new Guid(id).LoadFromDb();
-                
-            var nodes =
-                diagramNodeData?.Nodes.Select(n => new { name = n.Name, type = n.Type.ToString(), xy = n.XY.ToList() })?.ToList();
+            var diagramNodeData = id.LoadFromDb();
 
+            var data = diagramNodeData.GetDiagramDrawableData();
 
-            var connections =
-                diagramNodeData?.Nodes?.Where(x => x?.Transitions != null)?.SelectMany(x => x.Transitions)?
-                    .Select(x => new { connector = new { name = x.Connector.Name }, source = x.Source, target = x.Target })?.ToList();
-
-            return Ok(new { nodes, connections });
+            return Ok(data);
         }
 
 

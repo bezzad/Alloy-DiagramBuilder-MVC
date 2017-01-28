@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AlloyUiDiagram
 {
@@ -13,6 +14,7 @@ namespace AlloyUiDiagram
 
         public DateTime ModifyDate { get; set; }
 
+        [ScaffoldColumn(false)]
         public List<Node> Nodes { get; set; }
     }
 }

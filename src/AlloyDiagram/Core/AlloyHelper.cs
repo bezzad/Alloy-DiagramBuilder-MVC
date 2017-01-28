@@ -95,7 +95,7 @@ namespace AlloyDiagram.Core
 
                         node.Transitions.Add(new Transition()
                         {
-                            Uid = conn.ConnectId,
+                            Uid = conn.ConnectId.ToString(),
                             Source = node.Name,
                             SourceXY = node.XY,
                             Target = targetNode?.Name,
