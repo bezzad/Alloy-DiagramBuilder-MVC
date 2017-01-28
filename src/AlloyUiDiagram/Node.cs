@@ -9,7 +9,7 @@ namespace AlloyUiDiagram
     public class Node
     {
         [JsonIgnore]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid NodeId { get; set; } = Guid.NewGuid();
 
         [JsonIgnore]
         public List<Transition> Transitions { get; set; }

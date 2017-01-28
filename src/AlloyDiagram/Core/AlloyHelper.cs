@@ -22,7 +22,7 @@ namespace AlloyDiagram.Core
                         n =>
                             new
                             {
-                                n.Id,
+                                n.NodeId,
                                 n.Name,
                                 n.Position.X,
                                 n.Position.Y,
@@ -39,8 +39,8 @@ namespace AlloyDiagram.Core
                         .Select(x => new
                         {
                             x.Connector.Name,
-                            SourceId = nodes.FirstOrDefault(n => n.Name == x.Source)?.Id,
-                            TargetId = nodes.FirstOrDefault(n => n.Name == x.Target)?.Id
+                            SourceId = nodes.FirstOrDefault(n => n.Name == x.Source)?.NodeId,
+                            TargetId = nodes.FirstOrDefault(n => n.Name == x.Target)?.NodeId
                         });
 
                 var res = Connections.AlloyDb.SqlConn.Query<Diagram>("sp_InsertDiagramData",
@@ -88,10 +88,10 @@ namespace AlloyDiagram.Core
                 {
                     node.Transitions = new List<Transition>();
 
-                    var conns = connectors?.Where(c => c.SourceId == node.Id).ToList();
+                    var conns = connectors?.Where(c => c.SourceId == node.NodeId).ToList();
                     foreach (var conn in conns)
                     {
-                        var targetNode = diagram.Nodes.FirstOrDefault(x => x.Id == conn.TargetId);
+                        var targetNode = diagram.Nodes.FirstOrDefault(x => x.NodeId == conn.TargetId);
 
                         node.Transitions.Add(new Transition()
                         {
