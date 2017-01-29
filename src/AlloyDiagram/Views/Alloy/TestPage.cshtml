@@ -1,29 +1,51 @@
 ﻿@section scripts{
     @Scripts.Render("~/bundles/alloy")
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
 
     <script type="text/javascript">
-        $.get(window.location.origin + "/api/diagram/GetSavedData", function(data) {
-            DiagramDrower('myDiagramContainer2',
-                'myDiagramBuilder2',
-                data.nodes,
-                data.connections,
-                function(diagram) {
-                    // some changes on diagram object
-                });
+        var diagramStore = null;
+        $(function () {
+            pageGrids.diagramsGrid.onRowSelect(function (e) {
+                $("#divDiagram").html('<div id="myDiagramContainer"><div id="myDiagramBuilder" title="Test View Tooltip 2"></div></div>');
+                $.get(window.location.origin + "/api/diagram/GetSavedData",
+                    { id: e.row.DiagramId },
+                    function (data) {
+                        DiagramDrower('myDiagramContainer',
+                            'myDiagramBuilder',
+                            data.nodes,
+                            data.connections,
+                            data.isReadonly, function (diag) {
+                                diag.DiagramId = e.row.DiagramId;
+                                diag.DiagramName = e.row.DiagramName;
+                                diagramStore = diag;
+                            });
+                    });
+            });
         });
+
+        
+
+    </script>
+
+    <script>
+
     </script>
 }
 
-
-
-
 <br />
 <br />
 <br />
 <br />
 
-<form>
-    <div id="myDiagramContainer2">
-        <div id="myDiagramBuilder2" title="Test View Tooltip 2"></div>
+<div id="alert_placeholder"></div>
+
+<button class="btn btn-success" onclick="SaveDiagram(diagramStore)">ذخیره تغییرات</button>
+
+
+<div class="row">
+    <div class="col-xs-3">
+        @Html.Action("GetAlloyDiagramsTable", "Alloy")
     </div>
-</form>
+    <div class="col-xs-9" id="divDiagram"></div>
+</div>

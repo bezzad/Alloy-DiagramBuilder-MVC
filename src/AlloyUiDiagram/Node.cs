@@ -9,6 +9,9 @@ namespace AlloyUiDiagram
     public class Node
     {
         [JsonIgnore]
+        public Guid NodeId { get; set; } = Guid.NewGuid();
+
+        [JsonIgnore]
         public List<Transition> Transitions { get; set; }
 
         [JsonIgnore]
@@ -20,8 +23,8 @@ namespace AlloyUiDiagram
         public bool Required { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public string Type { get; set; }
-        
+        public FieldType Type { get; set; }
+
         [JsonIgnore]
         public int Width { get; set; }
 
@@ -31,9 +34,22 @@ namespace AlloyUiDiagram
         [JsonIgnore]
         public int ZIndex { get; set; }
 
-        public List<int> XY { get { return Position?.ToList(); } set { Position = value; } }
+        public List<double> XY
+        {
+            get { return new List<double>() { X, Y }; }
+            set
+            {
+                if (value == null) return;
+                X = value[0];
+                Y = value[1];
+            }
+        }
 
         [JsonIgnore]
-        public Point Position { get; set; }
+        public double X { get; set; }
+
+        [JsonIgnore]
+        public double Y { get; set; }
+
     }
 }

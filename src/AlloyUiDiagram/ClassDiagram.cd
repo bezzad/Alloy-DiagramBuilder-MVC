@@ -1,53 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="AlloyUiDiagram.Connector">
-    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Position X="7.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAQQAAACAAAAAAIAAgAAQAAA=</HashCode>
       <FileName>Connector.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Diagram">
-    <Position X="8.25" Y="1" Width="2" />
+    <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAQAAAAwAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Diagram.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Node">
-    <Position X="6.25" Y="3" Width="2.25" />
+    <Position X="2.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAGgAAAgAAAAAEQAgAAAAAABAAAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAEgAAAgAAAAAEQAgAAAAAABAQAACAAAAAA=</HashCode>
       <FileName>Node.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.ShapeSetting">
-    <Position X="3" Y="3" Width="1.5" />
+    <Position X="8.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShapeSetting.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Stroke">
-    <Position X="0.75" Y="3.25" Width="1.5" />
+    <Position X="3.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Stroke.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Transition">
-    <Position X="4.25" Y="0.5" Width="3.5" />
+    <Position X="5.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAADAAAAgAAAAAAABAAAAAAAAAQAAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAgAAAAAAABAAACAAAAAQAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Transition.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Shape">
-    <Position X="9.5" Y="2.75" Width="2.5" />
+    <Position X="0.5" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAACAAAAAAAABAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Shape.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AlloyUiDiagram.AvailableFields">
+    <Position X="6.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACCAAAgAAAAAAAAAAAAAAAAAAEAABAAAAAA=</HashCode>
+      <FileName>AvailableFields.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlloyUiDiagram.Point">
+    <Position X="0.5" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQQAAAAEwAMAAAAIAABAAIAAIAgAAAAAaiA=</HashCode>
+      <FileName>Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AlloyUiDiagram.FieldType">
+    <Position X="5" Y="3.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAAAAAgAAAIAAAAAAAAAAAEAAAAAABAAAQ=</HashCode>
+      <FileName>FieldType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

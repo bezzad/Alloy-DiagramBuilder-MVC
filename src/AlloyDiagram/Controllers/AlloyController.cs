@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Dapper;
+using System;
 using System.Web.Mvc;
+using AlloyDiagram.Core;
+using AlloyUiDiagram;
+using Newtonsoft.Json;
 
 namespace AlloyDiagram.Controllers
 {
@@ -17,6 +18,13 @@ namespace AlloyDiagram.Controllers
         public ActionResult TestPage()
         {
             return View();
+        }
+
+        public ActionResult GetAlloyDiagramsTable()
+        {
+            var model = Connections.AlloyDb.SqlConn.Query<Diagram>("Select * From Diagrams");
+
+            return PartialView("_AlloyDiagramsTable", model);
         }
     }
 }

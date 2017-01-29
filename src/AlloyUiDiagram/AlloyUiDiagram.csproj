@@ -37,6 +37,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -52,6 +53,7 @@
     <Compile Include="Connector.cs" />
     <Compile Include="Diagram.cs" />
     <Compile Include="FieldType.cs" />
+    <Compile Include="HelperExtensions.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

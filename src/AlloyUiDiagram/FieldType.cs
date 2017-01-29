@@ -2,7 +2,7 @@ namespace AlloyUiDiagram
 {
     public enum FieldType
     {
-        start,
+        start = 1,
         end,
         state,
         condition,
