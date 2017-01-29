@@ -24,8 +24,8 @@ namespace AlloyDiagram.Core
                             {
                                 n.NodeId,
                                 n.Name,
-                                n.Position.X,
-                                n.Position.Y,
+                                n.X,
+                                n.Y,
                                 Type = (int)n.Type,
                                 n.Description,
                                 n.ZIndex,

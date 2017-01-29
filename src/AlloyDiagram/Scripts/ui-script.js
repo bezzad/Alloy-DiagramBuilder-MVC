@@ -40,6 +40,29 @@ function ReadonlyDiagram(diagram) {
     });
 }
 
+
+
+function showAlert(message, title, type) {
+    $('#alert_placeholder').html("<div id='messageBox' class='alert alert-" + type + " alert-dismissible fade in'>" +
+        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
+                "<strong>" + title + "</strong> Your diagram stored on server.</div>");
+}
+
+
+function SaveDiagram(diagram) {
+    var x = diagram.toJSON();
+    x.DiagramId = diagram.DiagramId;
+    x.DiagramName = diagram.DiagramName;
+
+    $.post(window.location.origin + "/api/diagram/SaveDiagram", x, function (d) {
+        showAlert("Your diagram stored on server.", "Success!", "success");
+    });
+};
+
+
+
+
+
 // tooltip loader
 //YUI().ready(
 //  'aui-tooltip',

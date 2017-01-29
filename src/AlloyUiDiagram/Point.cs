@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace AlloyUiDiagram
 {
-    [JsonConverter(typeof(Point))]
-    public class Point : JsonConverter
+    public class Point
     {
         #region Properties
 
@@ -174,31 +171,6 @@ namespace AlloyUiDiagram
             return value.ToList();
         }
 
-        #endregion
-
-        #region Implement JsonConverter
-
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(IList<int>));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            var jA = JArray.Load(reader);
-            return new Point(serializer.Deserialize<List<int>>(new JTokenReader(jA)));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            var field = value.GetType().Name;
-            writer.WriteStartObject();
-
-            writer.WritePropertyName(field);
-            writer.WriteValue((value as Point)?.ToJson());
-
-            writer.WriteEndObject();
-        }
         #endregion
     }
 }

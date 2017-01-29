@@ -20,22 +20,6 @@ namespace AlloyDiagram.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult GetDiaramView()
-        {
-            return PartialView("_AlloyDiagram");
-        }
-
-        [HttpPost]
-        public ActionResult GetDiaramView(Guid alloyDiagramId)
-        {
-            //var diagramNodeData = alloyDiagramId.LoadFromDb();
-
-            //var data = diagramNodeData.GetDiagramDrawableData();
-
-            return PartialView("_AlloyDiagram");
-        }
-
         public ActionResult GetAlloyDiagramsTable()
         {
             var model = Connections.AlloyDb.SqlConn.Query<Diagram>("Select * From Diagrams");

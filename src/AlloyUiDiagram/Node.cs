@@ -34,32 +34,22 @@ namespace AlloyUiDiagram
         [JsonIgnore]
         public int ZIndex { get; set; }
 
-        public List<int> XY { get { return Position?.ToList(); } set { Position = value; } }
-
-        [JsonIgnore]
-        public int X
+        public List<double> XY
         {
-            get { return Position.X; }
+            get { return new List<double>() { X, Y }; }
             set
             {
-                Position = Position ?? new Point();
-                Position.X = value;
+                if (value == null) return;
+                X = value[0];
+                Y = value[1];
             }
         }
 
         [JsonIgnore]
-        public int Y
-        {
-            get { return Position.Y; }
-            set
-            {
-                Position = Position ?? new Point();
-                Position.Y = value;
-            }
-        }
-
+        public double X { get; set; }
 
         [JsonIgnore]
-        public Point Position { get; set; }
+        public double Y { get; set; }
+
     }
 }
