@@ -1,4 +1,6 @@
-function DiagramDrower(containerId, builderId, nodes, connections, isReadonly, callBackDiagram) {
+function DiagramDrower(parentId, containerId, builderId, nodes, connections, isReadonly, callBackDiagram) {
+    $("#" + parentId).html('<div id="' + containerId + '"><div id="' + builderId + '"></div></div>');
+
     YUI().use('aui-diagram-builder', function (y) {
         $.getJSON(window.location.origin + "/api/diagram/GetAvailableFields", null, function (data) {
             if (isReadonly === true) data = [];
@@ -12,9 +14,9 @@ function DiagramDrower(containerId, builderId, nodes, connections, isReadonly, c
 
             diagram.connectAll(connections);
 
-            if (callBackDiagram !== undefined) callBackDiagram(diagram);
+            if (isReadonly === true) ReadonlyDiagram(diagram);
 
-            if(isReadonly === true) ReadonlyDiagram(diagram);
+            if (callBackDiagram !== undefined) callBackDiagram(diagram);
         });
     });
 }
@@ -49,13 +51,16 @@ function showAlert(message, title, type) {
 }
 
 
-function SaveDiagram(diagram) {
+function SaveDiagram(diagram, diagramName, onSuccess) {
     var x = diagram.toJSON();
     x.DiagramId = diagram.DiagramId;
-    x.DiagramName = diagram.DiagramName;
+
+    if (diagramName === undefined || diagramName === null)
+        x.DiagramName = diagram.DiagramName;
+    else x.DiagramName = diagramName;
 
     $.post(window.location.origin + "/api/diagram/SaveDiagram", x, function (d) {
-        showAlert("Your diagram stored on server.", "Success!", "success");
+        onSuccess();
     });
 };
 

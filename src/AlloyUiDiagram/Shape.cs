@@ -10,11 +10,15 @@ namespace AlloyUiDiagram
 {
     public class Shape
     {
-        public string iconClass { get; set; }
-        public string label { get; set; }
+        [JsonProperty(PropertyName ="iconClass")]
+        public string IconClass { get; set; }
+
+        [JsonProperty(PropertyName = "label")]
+        public string Label { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public FieldType type { get; set; }
+        [JsonProperty(PropertyName = "type")]
+        public FieldType Type { get; set; }
 
 
         public static List<Shape> GetAvailableFields()
