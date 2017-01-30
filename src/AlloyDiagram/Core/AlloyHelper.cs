@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using AlloyUiDiagram;
 using Dapper;
 
@@ -109,7 +108,7 @@ namespace AlloyDiagram.Core
             }
             catch (Exception exp)
             {
-                return null;
+                throw;
             }
         }
 

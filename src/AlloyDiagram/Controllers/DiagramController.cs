@@ -30,7 +30,7 @@ namespace AlloyDiagram.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetSavedData(Guid id)
+        public IHttpActionResult GetDiagramData(Guid id)
         {
             var diagramNodeData = id.LoadFromDb();
 

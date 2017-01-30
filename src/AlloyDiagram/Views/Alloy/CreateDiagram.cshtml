@@ -1,0 +1,25 @@
+﻿@section scripts{
+    @Scripts.Render("~/bundles/alloy")
+
+    <script type="text/javascript">
+        var diagramStore;
+        DiagramDrower('divDiagram', 'myDiagramContainer', 'myDiagramBuilder', [], [], false, function (diag) {
+            diagramStore = diag;
+        });
+
+        var saveButton = function () {
+            SaveDiagram(diagramStore, $('#diagramName').val(), function () { document.location.href = '@Url.Action("EditDiagrams", "Alloy")'; });
+        };
+    </script>
+}
+
+<br />
+<br />
+
+<div id="divDiagram"></div>
+
+<br />
+<br />
+
+<button onclick="saveButton();">Test Copy Diagram</button>
+<input id="diagramName" type="text" placeholder="نام نمودار" name="DiagramName" />

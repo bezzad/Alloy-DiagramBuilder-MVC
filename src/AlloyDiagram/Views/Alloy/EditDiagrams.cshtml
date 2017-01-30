@@ -7,11 +7,10 @@
         var diagramStore = null;
         $(function () {
             pageGrids.diagramsGrid.onRowSelect(function (e) {
-                $("#divDiagram").html('<div id="myDiagramContainer"><div id="myDiagramBuilder" title="Test View Tooltip 2"></div></div>');
-                $.get(window.location.origin + "/api/diagram/GetSavedData",
+                $.get(window.location.origin + "/api/diagram/GetDiagramData",
                     { id: e.row.DiagramId },
                     function (data) {
-                        DiagramDrower('myDiagramContainer',
+                        DiagramDrower('divDiagram', 'myDiagramContainer',
                             'myDiagramBuilder',
                             data.nodes,
                             data.connections,
@@ -24,23 +23,16 @@
             });
         });
 
-        
 
-    </script>
-
-    <script>
 
     </script>
 }
 
 <br />
 <br />
-<br />
-<br />
 
 <div id="alert_placeholder"></div>
-
-<button class="btn btn-success" onclick="SaveDiagram(diagramStore)">ذخیره تغییرات</button>
+<button class="btn btn-success" onclick="SaveDiagram(diagramStore, function(){showAlert('Your diagram stored on server.', 'Success!', 'success');})">ذخیره تغییرات</button>
 
 
 <div class="row">
