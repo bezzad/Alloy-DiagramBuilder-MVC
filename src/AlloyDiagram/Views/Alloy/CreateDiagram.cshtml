@@ -1,14 +1,16 @@
-﻿@section scripts{
+﻿@using AlloyDiagram.Core
+@using AlloyUiDiagram
+
+@section scripts{
     @Scripts.Render("~/bundles/alloy")
 
-    <script type="text/javascript">
-        var diagramStore;
-        DiagramDrower('divDiagram', 'myDiagramContainer', 'myDiagramBuilder', [], [], false, function (diag) {
-            diagramStore = diag;
-        });
-
+    <script>
         var saveButton = function () {
-            SaveDiagram(diagramStore, $('#diagramName').val(), function () { document.location.href = '@Url.Action("EditDiagrams", "Alloy")'; });
+            SaveDiagram(diag1, $('#diagramName').val(), "/api/diagramApi/SaveDiagram",
+                function () {
+                    document.location.href = '@Url.Action("EditDiagrams", "Alloy")';
+                },
+            function () { alert("Can't store!") });
         };
     </script>
 }
@@ -16,10 +18,10 @@
 <br />
 <br />
 
-<div id="divDiagram"></div>
+@Html.Diagram(AlloyHelper.GetAvailableFieldsByUserRole(0), new Diagram(), "diag1")
 
 <br />
 <br />
 
-<button onclick="saveButton();">Test Copy Diagram</button>
-<input id="diagramName" type="text" placeholder="نام نمودار" name="DiagramName" />
+<button onclick="saveButton();">Create Diagram</button>
+<input id="diagramName" type="text" placeholder="Enter Diagram Name" name="DiagramName" />

@@ -1,29 +1,49 @@
-﻿@section scripts{
+﻿@using AlloyDiagram.Core
+@using AlloyUiDiagram
+
+@model Diagram
+
+@section scripts{
     @Scripts.Render("~/bundles/alloy")
     <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
 
     <script type="text/javascript">
-        var diagramStore = null;
+        //var diagramStore = null;
+        //$(function () {
+        //    pageGrids.diagramsGrid.onRowSelect(function (e) {
+        //        $.get(window.location.origin + "/api/diagramApi/GetDiagramData",
+        //            { id: e.row.DiagramId },
+        //            function (data) {
+        //                DiagramDrower('divDiagram', 'myDiagramContainer',
+        //                    'myDiagramBuilder',
+        //                    data.nodes,
+        //                    data.connections,
+        //                    data.isReadonly, function (diag) {
+        //                        diag.DiagramId = e.row.DiagramId;
+        //                        diag.DiagramName = e.row.DiagramName;
+        //                        diagramStore = diag;
+        //                    });
+        //            });
+        //    });
+        //});
+
         $(function () {
             pageGrids.diagramsGrid.onRowSelect(function (e) {
-                $.get(window.location.origin + "/api/diagram/GetDiagramData",
-                    { id: e.row.DiagramId },
-                    function (data) {
-                        DiagramDrower('divDiagram', 'myDiagramContainer',
-                            'myDiagramBuilder',
-                            data.nodes,
-                            data.connections,
-                            data.isReadonly, function (diag) {
-                                diag.DiagramId = e.row.DiagramId;
-                                diag.DiagramName = e.row.DiagramName;
-                                diagramStore = diag;
-                            });
-                    });
+                $("#diagramId").val(e.row.DiagramId);
+                $("#frmPage").submit();
             });
         });
 
-
+        function btnclick() {
+            SaveDiagram(diagramStore, null, "/api/diagramApi/SaveDiagram",
+                function () {
+                    showAlert('Your diagram stored on server.', 'Success!', 'success');
+                },
+                function () {
+                    showAlert('Your diagram can not stored on server.', 'Fail!', 'danger');
+                });
+        }
 
     </script>
 }
@@ -32,12 +52,21 @@
 <br />
 
 <div id="alert_placeholder"></div>
-<button class="btn btn-success" onclick="SaveDiagram(diagramStore, function(){showAlert('Your diagram stored on server.', 'Success!', 'success');})">ذخیره تغییرات</button>
+<button class="btn btn-success" onclick="btnclick()">ذخیره تغییرات</button>
 
 
 <div class="row">
     <div class="col-xs-3">
         @Html.Action("GetAlloyDiagramsTable", "Alloy")
     </div>
-    <div class="col-xs-9" id="divDiagram"></div>
+    <div class="col-xs-9">
+        @using (Html.BeginForm("EditDiagrams", "Alloy", FormMethod.Post, new { id = "frmPage" }))
+        {
+            <input name="id" type="text" hidden id="diagramId" />
+            if (IsPost)
+            {
+                @Html.Diagram(AlloyHelper.GetAvailableFieldsByUserRole(0), Model, "diagramStore")
+            }
+        }
+    </div>
 </div>

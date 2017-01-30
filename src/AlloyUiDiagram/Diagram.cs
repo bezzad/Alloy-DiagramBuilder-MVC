@@ -21,7 +21,7 @@ namespace AlloyUiDiagram
 
         public object GetDiagramDrawableData()
         {
-            var nodes = Nodes.Select(n => new { name = n.Name, type = n.Type.ToString(), xy = n.XY.ToList() })?.ToList();
+            var nodes = Nodes?.Select(n => new { name = n.Name, type = n.Type.ToString(), xy = n.XY.ToList() })?.ToList();
 
 
             var connections = Nodes?.Where(x => x?.Transitions != null)?.SelectMany(x => x.Transitions)?
