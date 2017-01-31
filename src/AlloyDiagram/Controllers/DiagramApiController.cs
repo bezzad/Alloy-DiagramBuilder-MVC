@@ -6,7 +6,7 @@ using AlloyDiagram.Core;
 
 namespace AlloyDiagram.Controllers
 {
-    public class DiagramController : ApiController
+    public class DiagramApiController : ApiController
     {
         [HttpPost]
         public IHttpActionResult SaveDiagram(Diagram value)

@@ -2,7 +2,7 @@ function DiagramDrower(parentId, containerId, builderId, nodes, connections, isR
     $("#" + parentId).html('<div id="' + containerId + '"><div id="' + builderId + '"></div></div>');
 
     YUI().use('aui-diagram-builder', function (y) {
-        $.getJSON(window.location.origin + "/api/diagram/GetAvailableFields", null, function (data) {
+        $.getJSON(window.location.origin + "/api/diagramApi/GetAvailableFields", null, function (data) {
             if (isReadonly === true) data = [];
             var diagram = new y.DiagramBuilder(
             {
@@ -43,15 +43,7 @@ function ReadonlyDiagram(diagram) {
 }
 
 
-
-function showAlert(message, title, type) {
-    $('#alert_placeholder').html("<div id='messageBox' class='alert alert-" + type + " alert-dismissible fade in'>" +
-        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" +
-                "<strong>" + title + "</strong> Your diagram stored on server.</div>");
-}
-
-
-function SaveDiagram(diagram, diagramName, onSuccess) {
+function SaveDiagram(diagram, diagramName, apiUrl, onSuccess, onFail) {
     var x = diagram.toJSON();
     x.DiagramId = diagram.DiagramId;
 
@@ -59,8 +51,11 @@ function SaveDiagram(diagram, diagramName, onSuccess) {
         x.DiagramName = diagram.DiagramName;
     else x.DiagramName = diagramName;
 
-    $.post(window.location.origin + "/api/diagram/SaveDiagram", x, function (d) {
-        onSuccess();
+    $.post(window.location.origin + apiUrl, x,
+    function (d) {
+        onSuccess(d);
+    }).fail(function (d) {
+        onFail(d);
     });
 };
 

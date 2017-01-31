@@ -205,7 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlloyController.cs" />
-    <Compile Include="Controllers\DiagramController.cs" />
+    <Compile Include="Controllers\DiagramApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\AlloyHelper.cs" />
     <Compile Include="Core\ExtensionHelper.cs" />
@@ -2534,6 +2534,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\ui-script.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">

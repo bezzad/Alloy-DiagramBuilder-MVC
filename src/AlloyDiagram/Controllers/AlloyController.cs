@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Web.Mvc;
+using AlloyDiagram.Core;
 using AlloyUiDiagram;
 
 namespace AlloyDiagram.Controllers
@@ -16,6 +17,14 @@ namespace AlloyDiagram.Controllers
         public ActionResult EditDiagrams()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditDiagrams(Guid id)
+        {
+            var diagramNodeData = id.LoadFromDb();
+
+            return View(diagramNodeData);
         }
 
         public ActionResult GetAlloyDiagramsTable()

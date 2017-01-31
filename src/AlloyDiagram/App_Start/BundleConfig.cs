@@ -9,12 +9,12 @@ namespace AlloyDiagram
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/site.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/alloy").Include(
                         "~/Scripts/AlloyUi/aui/aui.js",
-                        "~/Scripts/ui-script.js"
-                        ));
+                        "~/Scripts/ui-script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                                     "~/Scripts/jquery.validate*"));
