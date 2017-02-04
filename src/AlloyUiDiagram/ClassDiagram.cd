@@ -1,63 +1,136 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="AlloyUiDiagram.Connector">
-    <Position X="7.5" Y="0.5" Width="2.5" />
+    <Position X="7.75" Y="3.25" Width="2.5" />
+    <AssociationLine Name="ShapeSelected" Type="AlloyUiDiagram.ShapeSetting">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.169" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAQQAAACAAAAAAIAAgAAQAAA=</HashCode>
       <FileName>Connector.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ShapeHover" />
+      <Property Name="ShapeSelected" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AlloyUiDiagram.Diagram">
     <Position X="0.5" Y="0.5" Width="2" />
+    <AssociationLine Name="Nodes" Type="AlloyUiDiagram.Node">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.015" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAQAAAAwAAAAAAAAAAgAIAAAAAAAAA=</HashCode>
       <FileName>Diagram.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Nodes" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AlloyUiDiagram.Node">
-    <Position X="2.75" Y="0.5" Width="2.25" />
+    <Position X="4" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAEgAAAAAAAAAEQAgCAAAAABAQAACAAAYAA=</HashCode>
       <FileName>Node.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Transitions" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AlloyUiDiagram.ShapeSetting">
-    <Position X="0.75" Y="3" Width="1.5" />
+    <Position X="8.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShapeSetting.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Stroke" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AlloyUiDiagram.Stroke">
-    <Position X="7" Y="3" Width="1.5" />
+    <Position X="6.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Stroke.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlloyUiDiagram.Transition">
-    <Position X="5.25" Y="0.5" Width="2" />
+    <Position X="8.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAgAAAAAAABAAACAAAAAQAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Transition.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Connector" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AlloyUiDiagram.Shape">
-    <Position X="0.5" Y="4.25" Width="2.5" />
+    <Position X="0.5" Y="3" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAACAAAAAAAAAAAAAAQACAAAAAAA=</HashCode>
       <FileName>Shape.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="AlloyUiDiagram.AvailableFields">
-    <Position X="3.25" Y="4" Width="2" />
+  <Class Name="AlloyUiDiagram.AvailableFields" Collapsed="true">
+    <Position X="0.75" Y="6" Width="2" />
+    <AssociationLine Name="Condition" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.336" Y="0.079" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Fork" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.159" Y="0.266" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="End" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.211" Y="0.735" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Start" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.265" Y="0.445" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Join" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.192" Y="0.747" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Task" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.148" Y="0.12" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="State" Type="AlloyUiDiagram.Shape">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.211" Y="0.266" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAIAAAAAACCAAAgAAAAAAAAAAAAAAAAAAEAABAAAAAA=</HashCode>
       <FileName>AvailableFields.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Condition" />
+      <Property Name="Fork" />
+      <Property Name="End" />
+      <Property Name="Start" />
+      <Property Name="Join" />
+      <Property Name="Task" />
+      <Property Name="State" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="AlloyUiDiagram.FieldType">
-    <Position X="5.5" Y="2.75" Width="1.25" />
+    <Position X="6" Y="3.75" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIACAAAAAAAgAAAIAAAAAAAAAAAEAAAAAABAAAQ=</HashCode>
       <FileName>FieldType.cs</FileName>
